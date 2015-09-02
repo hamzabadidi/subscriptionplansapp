@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<body>
+    <ui:fragment rendered="#{identity.loggedIn}">
+        <meta http-equiv="Refresh" content="0; URL=protected/private.jsf"/>
+    </ui:fragment>
+    
+<!--     <b>Should we see this ?</b> -->
+    
+    <!-- Following code was disabled as it is rendered even if the user is logged in ! -->
+    <!-- 
+    <ui:fragment rendered="#{not identity.loggedIn}">
+    <ui:composition template="template.xhtml">
+    	<ui:define name="top"><p>This is a public resource.</p></ui:define>
+    	
+    	
+   		<ui:define name="content">
+	   		<h:form>
+	   			<p>Click <h:outputLink value="protected/private.jsf">here</h:outputLink> here to access the protected resources.</p>
+	   		</h:form>
+   		</ui:define>
+        
+        
+        
+        <ui:define name="bottom"><footer>Tip: you can login with a username/password of jane/abcd1234.</footer></ui:define>
+    </ui:composition>
+    </ui:fragment>
+     -->
+</body>
+</html>

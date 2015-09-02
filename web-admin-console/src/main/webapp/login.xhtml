@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+
+<ui:composition template="template.xhtml" xmlns:pa="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Login</ui:define>
+
+	<ui:define name="top"></ui:define>
+	<ui:define name="left"></ui:define>
+	
+	<ui:define name="content">
+		<div class="container">
+		
+		<h:form method="POST" prependId="false" class="form-signin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<h:inputText id="j_username" pa:placeholder="Username" class="form-control"/>
+			<h:inputSecret id="j_password" pa:placeholder="Password" class="form-control"/>
+			<h:commandButton id="login" value="Login" action="#{identity.login()}" class="btn btn-lg btn-primary btn-block"/>
+		</h:form>
+		
+		</div>
+	</ui:define>
+	
+	<ui:define name="bottom">
+	<footer class="footer">
+	<div class="container">
+		<p><b>Tip:</b>You can login with hamza:adminadmin.</p>
+	</div>
+	</footer>
+	</ui:define>
+
+</ui:composition>
+
+
+
+</h:body>
+</html>

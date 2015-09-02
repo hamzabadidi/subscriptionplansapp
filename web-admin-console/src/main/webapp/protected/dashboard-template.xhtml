@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:pa="http://xmlns.jcp.org/jsf/passthrough">
+	  
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="bootstrap.css"/>
+	<h:outputStylesheet library="css" name="custom/dashboard.css"/>
+	<h:outputStylesheet library="css" name="custom/sticky-footer.css"/>
+	<title><ui:insert name="title">Template</ui:insert></title>
+</h:head>
+
+<h:body>
+
+<div id="divtop">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <div class="nav navbar-nav navbar-right">
+            <p>You're authenticated, <b>#{identity.account.loginName}</b>.<a href="#{request.contextPath}/logout">Logout</a></p>
+          </div>
+          <div class="nav navbar-nav navbar-center">
+          	<h:form class="navbar-form navbar-right">
+              <h:inputText pa:placeholder="Search..." class="form-control"/>
+            </h:form>
+          </div>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+
+<div id="divleft" class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="#{view.viewId == '/protected/private.xhtml' ? 'active' : ''}"><a href="private.jsf">Overview</a></li>
+    <li class="#{view.viewId == '/protected/members.xhtml' ? 'active' : ''}"><a href="members.jsf">Members</a></li>
+    <li class="#{view.viewId == '/protected/subscriptionplans.xhtml' ? 'active' : ''}"><a href="subscriptionplans.jsf">Subscription Plans</a></li>
+    <li class="#{view.viewId == '/protected/affiliations.xhtml' ? 'active' : ''}"><a href="affiliations.jsf">Affiliations</a></li>
+  </ul>
+  <ul class="nav nav-sidebar">
+  	<li class="#{view.viewId == '/protected/analytics.xhtml' ? 'active' : ''}"><a href="analytics.jsf">Analytics</a></li>
+    <li class="#{view.viewId == '/protected/finances.xhtml' ? 'active' : ''}"><a href="finances.jsf">Finances</a></li>
+  </ul>
+  <ul class="nav nav-sidebar">
+    <li class="#{view.viewId == '/protected/reports.xhtml' ? 'active' : ''}"><a href="reports.jsf">Reports</a></li>
+    <li class="#{view.viewId == '/protected/queuedjobs.xhtml' ? 'active' : ''}"><a href="queuedjobs.jsf">Queued Jobs</a></li>
+  </ul>
+</div>
+
+<div id="divcontent" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<ui:insert name="content">Content</ui:insert>     
+</div>
+
+</div>
+</div>
+
+<div id="divbottom">
+<footer class="footer">
+	<div class="container">
+		<p>Footer</p>
+	</div>
+</footer>
+</div>
+
+
+<h:outputScript library="js" name="bootstrap.js"/>
+<h:outputScript name="js/bootstrap.js"/>
+</h:body>
+</html>
