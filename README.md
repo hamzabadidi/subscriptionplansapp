@@ -1,5 +1,5 @@
 # subscriptionplansapp
-Basic java EE for accounts registration and management with different subscription plans
+Plain Java EE application for accounts registration and management with different subscription plans
 
 ###Planned Technology stack:
 - JDK 8
