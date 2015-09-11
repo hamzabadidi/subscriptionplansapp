@@ -1,15 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.hamza.subscriptionplansapp</groupId>
   <parent>
     <groupId>com.hamza.subscriptionplansapp</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>business-services</artifactId>
-  <packaging>war</packaging>
+  <packaging>ejb</packaging>
 
   <name>business-services</name>
   <url>http://maven.apache.org</url>
@@ -18,16 +17,72 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
+  <dependencies>
+  	<dependency>
+        <groupId>org.hibernate.common</groupId>
+        <artifactId>hibernate-commons-annotations</artifactId>
+        <version>4.0.5.Final</version>
+    </dependency>
+    
+  <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+<!-- 		<version>5.2.1.Final</version> -->
+		<exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+        </exclusions>
+	</dependency>
+  	<dependency>
+		<groupId>com.hamza.subscriptionplansapp</groupId>
+		<artifactId>business-domain-model</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</dependency>
+  </dependencies>
+  
   <build>
         <plugins>
+<!--         	<plugin> -->
+<!-- 		        <groupId>org.apache.maven.plugins</groupId> -->
+<!-- 		        <artifactId>maven-shade-plugin</artifactId> -->
+<!-- 		        <version>1.6</version> -->
+<!-- 		        <executions> -->
+<!-- 		          <execution> -->
+<!-- 		            <phase>package</phase> -->
+<!-- 		            <goals> -->
+<!-- 		              <goal>shade</goal> -->
+<!-- 		            </goals> -->
+<!-- 		            <configuration> -->
+<!-- 		            	<artifactSet> -->
+<!-- 		            		<includes> -->
+<!-- 		            			<include>com.hamza.subscriptionplansapp:business-domain-model</include> -->
+<!-- 		            		</includes> -->
+<!-- 		            	</artifactSet> -->
+<!-- 		            </configuration> -->
+<!-- 		          </execution> -->
+<!-- 		        </executions> -->
+<!-- 		      </plugin> -->
+
+<!--             <plugin> -->
+<!--                 <groupId>org.wildfly.plugins</groupId> -->
+<!--                 <artifactId>wildfly-maven-plugin</artifactId> -->
+<!--                 <version>${version.wildfly.maven.plugin}</version> -->
+<!--                 <configuration> -->
+<!-- 			        <skip>false</skip> -->
+<!-- 			    </configuration> -->
+<!--             </plugin> -->
+            
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>${version.wildfly.maven.plugin}</version>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>2.3</version>
                 <configuration>
-			        <skip>false</skip>
-			    </configuration>
+                    <!-- Tell Maven we are using EJB 3.1 -->
+                    <ejbVersion>3.1</ejbVersion>
+                </configuration>
             </plugin>
+            
         </plugins>
     </build>
 

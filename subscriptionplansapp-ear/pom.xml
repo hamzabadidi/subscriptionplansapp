@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.hamza.subscriptionplansapp</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>subscriptionplansapp-ear</artifactId>
+  <packaging>ear</packaging>
+
+  <name>subscriptionplansapp-ear</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+<!--   <dependency> -->
+<!--   		<groupId>com.hamza.subscriptionplansapp</groupId> -->
+<!--   		<artifactId>business-domain-model</artifactId> -->
+<!--   		<version>1.0.0-SNAPSHOT</version> -->
+<!--   	</dependency> -->
+<!-- 	<dependency> -->
+<!--   		<groupId>com.hamza.subscriptionplansapp</groupId> -->
+<!--   		<artifactId>business-services</artifactId> -->
+<!--   		<version>1.0.0-SNAPSHOT</version> -->
+<!--   		<type>ejb</type> -->
+<!--   	</dependency> -->
+  	<dependency>
+  		<groupId>com.hamza.subscriptionplansapp</groupId>
+  		<artifactId>web-admin-console</artifactId>
+  		<version>1.0.0-SNAPSHOT</version>
+  		<type>war</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.hamza.subscriptionplansapp</groupId>
+  		<artifactId>webservices</artifactId>
+  		<version>1.0.0-SNAPSHOT</version>
+  		<type>war</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.hamza.subscriptionplansapp</groupId>
+  		<artifactId>web-app</artifactId>
+  		<version>1.0.0-SNAPSHOT</version>
+  		<type>war</type>
+  		<scope>compile</scope>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <!-- Tell Maven we are using Java EE 7 -->
+                    <version>7</version>
+                    <!-- Use Java EE ear libraries as needed. Java EE ear libraries 
+                        are in easy way to package any libraries needed in the ear, and automatically 
+                        have any modules (EJB-JARs and WARs) use them -->
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <fileNameMapping>no-version</fileNameMapping>
+                </configuration>
+            </plugin>
+            <!-- The WildFly plugin deploys your ear to a local WildFly container -->
+            <!-- Due to Maven's lack of intelligence with EARs we need to configure 
+                the wildfly maven plugin to skip deployment for all modules. We then enable
+                it specifically in the ear module. -->
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <configuration>
+                    <filename>${project.artifactId}.ear</filename>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+<!--             <plugin> -->
+<!--                 <groupId>org.wildfly.plugins</groupId> -->
+<!--                 <artifactId>wildfly-maven-plugin</artifactId> -->
+<!--                 <version>${version.wildfly.maven.plugin}</version> -->
+<!--                 <configuration> -->
+<!-- 			        <skip>false</skip> -->
+<!-- 			    </configuration> -->
+<!--             </plugin> -->
+            
+        </plugins>
+    </build>
+
+
+</project>

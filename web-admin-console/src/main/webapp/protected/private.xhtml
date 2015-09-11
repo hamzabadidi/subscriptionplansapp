@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -15,6 +16,42 @@
 
 <ui:define name="content">
 	<h1 class="page-header">Overview</h1>
+	
+	<h3>Last subscribed members</h3>
+	<h:form>
+	<h:dataTable value="#{lastMembersBean.lastMembers}" var="member" class="table">
+	   <h:column>    				
+	      <f:facet name="header">Id</f:facet>    				
+	      #{member.id}
+	   </h:column>
+	   <h:column>
+	      <f:facet name="header">Username</f:facet>
+	      #{member.subscriptionDetails.userName}
+	   </h:column>
+	   <h:column>
+	      <f:facet name="header">E-Mail</f:facet>
+	      #{member.email}
+	   </h:column>
+	   <h:column>    				
+	      <f:facet name="header">First Name</f:facet>    				
+	      #{member.contactDetails.firstName}
+	   </h:column>
+	   <h:column>    				
+	      <f:facet name="header">Last Name</f:facet>    				
+	      #{member.contactDetails.lastName}
+	   </h:column>
+	   	   <h:column>    				
+	      <f:facet name="header">Subscription Plan</f:facet>    				
+	      #{member.subscriptionDetails.subscriptionPlan.subscriptionPlanName} (#{member.subscriptionDetails.subscriptionPlan.price})
+	   </h:column>
+	   <h:column>
+	      <f:facet name="header">More Info (See console)</f:facet>
+	      	<h:commandLink value="More" action="#{lastMembersBean.show(member)}" ></h:commandLink>
+	   </h:column>
+	</h:dataTable>
+	</h:form>
+	
+	
 </ui:define>
 
 </ui:composition>
