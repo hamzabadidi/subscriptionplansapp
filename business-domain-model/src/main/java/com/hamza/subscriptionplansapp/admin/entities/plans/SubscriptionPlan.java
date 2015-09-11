@@ -35,8 +35,20 @@ public class SubscriptionPlan {
 	@NotNull
 	private double price;
 	
+	public String getSubscriptionPlanName() {
+		return subscriptionPlanName;
+	}
+
+	public void setSubscriptionPlanName(String subscriptionPlanName) {
+		this.subscriptionPlanName = subscriptionPlanName;
+	}
+
 	public double getPrice() {
 		return price;
+	}
+	
+	public void setPrice(double aPrice) {
+		this.price = aPrice;
 	}
 	
 	public SubscriptionPlan() {

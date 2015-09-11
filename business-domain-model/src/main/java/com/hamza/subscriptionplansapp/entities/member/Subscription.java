@@ -42,6 +42,22 @@ public class Subscription {
 	@OneToOne
 	private SubscriptionPlan subscriptionPlan;
 	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public SubscriptionPlan getSubscriptionPlan() {
+		return subscriptionPlan;
+	}
+
+	public void setSubscriptionPlan(SubscriptionPlan subscriptionPlan) {
+		this.subscriptionPlan = subscriptionPlan;
+	}
+
 	public Subscription() {
 		// For JPA
 	}

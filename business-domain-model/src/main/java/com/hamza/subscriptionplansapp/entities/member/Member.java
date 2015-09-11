@@ -50,5 +50,45 @@ public class Member {
 	public Member() {
 		// For JPA
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Subscription getSubscriptionDetails() {
+		return subscriptionDetails;
+	}
+
+	public void setSubscriptionDetails(Subscription subscriptionDetails) {
+		this.subscriptionDetails = subscriptionDetails;
+	}
+
+	public Contact getContactDetails() {
+		return contactDetails;
+	}
+
+	public void setContactDetails(Contact contactDetails) {
+		this.contactDetails = contactDetails;
+	}
+
+	public PaymentDetails getPaymentDetails() {
+		return paymentDetails;
+	}
+
+	public void setPaymentDetails(PaymentDetails paymentDetails) {
+		this.paymentDetails = paymentDetails;
+	}
 	
 }
