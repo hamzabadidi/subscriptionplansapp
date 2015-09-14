@@ -37,6 +37,7 @@
     <module>webservices</module>
     <module>web-admin-console</module>
     <module>web-app</module>
+    <module>simulation</module>
     <module>subscriptionplansapp-ear</module>
   </modules>
 

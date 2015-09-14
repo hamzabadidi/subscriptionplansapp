@@ -13,7 +13,8 @@ import javax.validation.constraints.Size;
 @Entity
 public class Contact {
 	
-	public Contact(String aFirstName, String aLastName, LocalDate aDateOfBirth, String anAddress, String aCurrentLocation) {
+	public Contact(String aTitle, String aFirstName, String aLastName, LocalDate aDateOfBirth, String anAddress, String aCurrentLocation) {
+		title = aTitle;
 		firstName = aFirstName;
 		lastName = aLastName;
 		dateOfBirth = aDateOfBirth;
@@ -24,6 +25,9 @@ public class Contact {
 	@Id
 	@GeneratedValue
 	private long id;
+	
+	@NotNull
+	private String title;
 	
 	@NotNull
 	@Size(min = 1, max = 25, message = "1-25 letters and spaces")
@@ -94,6 +98,14 @@ public class Contact {
 
 	public void setCurrentLocation(String currentLocation) {
 		this.currentLocation = currentLocation;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String aTitle) {
+		this.title = aTitle;
 	}
 	
 	

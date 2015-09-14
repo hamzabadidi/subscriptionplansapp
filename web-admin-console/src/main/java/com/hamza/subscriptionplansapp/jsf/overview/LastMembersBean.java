@@ -1,8 +1,7 @@
-package com.hamza.subscriptionplansapp.jsf;
+package com.hamza.subscriptionplansapp.jsf.overview;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -20,17 +19,13 @@ public class LastMembersBean {
 	
 	private List<Member> lastMembers;
 	
-	@PostConstruct
-	public void loadLastMembers() {
-		lastMembers = membersService.getAllMembers();
-	}
-	
 	public void show(Member member) {
 		Contact contactDetails = member.getContactDetails();
 		System.out.println(member.getId() + " - " + contactDetails.getFirstName() + " " + contactDetails.getLastName());
 	}
 
 	public List<Member> getLastMembers() {
+		lastMembers = membersService.getAllMembers();
 		return lastMembers;
 	}
 

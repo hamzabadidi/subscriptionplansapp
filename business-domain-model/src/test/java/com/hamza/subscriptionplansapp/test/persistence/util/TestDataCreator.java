@@ -35,7 +35,7 @@ public class TestDataCreator {
 		Subscription subscribtionDetails = new Subscription(LocalDateTime.now(), "zyriab", "mysecretpassword", plan);
 		em.persist(subscribtionDetails);
 		
-		Contact contactDetails = new Contact("Hamza", "Badidi", LocalDate.of(1983, Month.OCTOBER, 21), "Munich", "Partnachplatz");
+		Contact contactDetails = new Contact("Mr", "Hamza", "Badidi", LocalDate.of(1983, Month.OCTOBER, 21), "Munich", "Partnachplatz");
 		em.persist(contactDetails);
 
 		
